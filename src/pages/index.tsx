@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
 
   async function connect() {
-    if (typeof window.ethereum !== "undefined") {
+    if (hasMetamask) {
       try {
         await window.ethereum.request({ method: "eth_requestAccounts" });
         setIsConnected(true);
@@ -32,7 +32,7 @@ export default function Home() {
   }
 
   async function execute() {
-    if (typeof window.ethereum !== "undefined") {
+    if (hasMetamask) {
       const contractAddress = "0xb353187a10bd0b21e0fad4f2ac6445d530a3800e";
       const abi = [
         {
