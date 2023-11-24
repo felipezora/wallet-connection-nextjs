@@ -17,7 +17,7 @@ export default function Home() {
   async function connect() {
     if (typeof window.ethereum !== "undefined") {
       try {
-        await ethereum.request({ method: "eth_requestAccounts" });
+        await window.ethereum.request({ method: "eth_requestAccounts" });
         setIsConnected(true);
         const provider = new ethers.BrowserProvider(
           window.ethereum as ethers.Eip1193Provider
